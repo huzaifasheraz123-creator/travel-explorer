@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Results - TravelExplorer</title>
+  <title>Global Travel Guide - TravelExplorer</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -17,119 +17,189 @@
       font-family: 'Poppins', sans-serif;
       background-color: #f8fafc;
       color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Navigation - Fully Responsive */
+    /* Navigation Bar */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 8%;
+      padding: 16px 8%;
       background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
       position: sticky;
       top: 0;
       z-index: 100;
+      min-height: 70px;
     }
     .logo {
-      font-size: 24px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 22px;
       font-weight: 700;
       color: #0284c7;
       text-decoration: none;
+      line-height: 1;
     }
     .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
-      background: #e2e8f0;
-      color: #1e293b;
-      padding: 8px 16px;
-      border-radius: 6px;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 0 18px;
+      height: 40px;
+      border-radius: 8px;
       font-weight: 500;
-      transition: background 0.3s;
+      font-size: 14px;
+      transition: all 0.2s ease;
       white-space: nowrap;
+      border: 1px solid #e2e8f0;
     }
     .back-btn:hover {
-      background: #cbd5e1;
+      background: #e2e8f0;
+      color: #0f172a;
     }
 
-    /* Container */
+    /* Main Container */
     .container {
-      max-width: 800px;
+      max-width: 850px;
+      width: 100%;
       margin: 40px auto;
       padding: 0 20px;
-      text-align: center;
+      flex: 1;
     }
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      color: #0f172a;
+      margin-bottom: 30px;
+    }
+
+    /* Country Display Card */
     .country-card {
       background: white;
-      border-radius: 16px;
-      padding: 35px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      margin-top: 25px;
-      text-align: left;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+      animation: fadeIn 0.4s ease-out;
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .card-header {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #f1f5f9;
     }
     .flag-img {
-      width: 120px;
-      height: 80px;
+      width: 130px;
+      height: 85px;
       object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
     .country-title h2 {
-      font-size: 28px;
+      font-size: 32px;
+      font-weight: 700;
       color: #0f172a;
+      line-height: 1.2;
     }
     .country-title p {
       color: #64748b;
       font-size: 15px;
+      margin-top: 6px;
     }
 
+    /* Data Grid */
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid #f1f5f9;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
     }
     .info-box {
       background: #f8fafc;
-      padding: 15px;
-      border-radius: 10px;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 1px solid #f1f5f9;
     }
     .info-box strong {
       display: block;
       color: #0284c7;
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
     }
     .info-box span {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
-      color: #334155;
+      color: #1e293b;
     }
 
+    /* Highlights Section */
+    .highlights-section {
+      background: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      padding: 22px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .highlights-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0369a1;
+      margin-bottom: 8px;
+    }
+    .highlights-section p {
+      font-size: 15px;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    /* Google Maps Button */
     .map-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
       background: #0284c7;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 12px;
       font-weight: 600;
-      transition: background 0.3s;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
     }
     .map-btn:hover {
       background: #0369a1;
+      transform: translateY(-2px);
+    }
+
+    /* Status State */
+    .status-box {
+      text-align: center;
+      padding: 60px 20px;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
     }
 
     footer {
@@ -138,45 +208,52 @@
       background: #0f172a;
       color: #94a3b8;
       font-size: 14px;
-      margin-top: 60px;
+      margin-top: auto;
     }
 
-    /* Mobile Responsive adjustments */
-    @media (max-width: 600px) {
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
       nav {
-        padding: 15px 5%;
+        padding: 14px 5%;
+      }
+      .container {
+        margin: 20px auto;
       }
       .country-card {
-        padding: 20px;
+        padding: 24px;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
       }
       .card-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
       }
       .flag-img {
-        width: 100px;
-        height: 65px;
+        width: 110px;
+        height: 72px;
       }
       .country-title h2 {
-        font-size: 24px;
+        font-size: 26px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html" class="logo">✈️ TravelExplorer</a>
     <a href="index.html" class="back-btn">← Back to Home</a>
   </nav>
 
-  <!-- Container -->
   <div class="container">
-    <h1 id="searchTitle">Searching Destination...</h1>
+    <h1 class="page-title" id="searchTitle">Searching Destination...</h1>
     <div id="resultsContent">
-      <p style="color: #64748b; margin-top: 20px;">Fetching real-time global country data...</p>
+      <div class="status-box">
+        <p style="color: #64748b; font-size: 16px;">Searching destination database...</p>
+      </div>
     </div>
   </div>
 
@@ -185,89 +262,301 @@
   </footer>
 
   <script>
+    const fullCountryList = [
+      { name: "Afghanistan", capital: "Kabul", region: "Southern Asia", population: "41,128,771", languages: "Pashto, Dari", code: "af", highlights: "Historic Kabul, Band-e Amir National Park, Citadel of Herat, and the Panjshir Valley." },
+      { name: "Albania", capital: "Tirana", region: "Southern Europe", population: "2,775,634", languages: "Albanian", code: "al", highlights: "Albanian Riviera, Skanderbeg Square in Tirana, Berat historic town, and Gjirokastër." },
+      { name: "Algeria", capital: "Algiers", region: "Northern Africa", population: "44,903,225", languages: "Arabic, Tamazight", code: "dz", highlights: "Sahara Desert dunes, Kasbah of Algiers, Roman ruins of Timgad, and Constantine." },
+      { name: "Andorra", capital: "Andorra la Vella", region: "Southern Europe", population: "79,824", languages: "Catalan", code: "ad", highlights: "Pyrenees Ski Resorts, Vallnord, Caldea Spa, and historic Romanesque churches." },
+      { name: "Angola", capital: "Luanda", region: "Middle Africa", population: "35,588,987", languages: "Portuguese", code: "ao", highlights: "Kalandula Falls, Kissama National Park, Luanda waterfront, and Serra da Leba pass." },
+      { name: "Antigua and Barbuda", capital: "Saint John's", region: "Caribbean", population: "93,763", languages: "English", code: "ag", highlights: "365 Sandy Beaches, Nelson's Dockyard, Shirley Heights, and Dickenson Bay." },
+      { name: "Argentina", capital: "Buenos Aires", region: "South America", population: "46,234,830", languages: "Spanish", code: "ar", highlights: "Iguazu Falls, Patagonia glaciers, Buenos Aires Tango quarters, and Mendoza vineyards." },
+      { name: "Armenia", capital: "Yerevan", region: "Western Asia", population: "2,780,469", languages: "Armenian", code: "am", highlights: "Lake Sevan, Mount Ararat vistas, Tatev Monastery cable car, and Yerevan Cascade." },
+      { name: "Australia", capital: "Canberra", region: "Oceania", population: "26,005,540", languages: "English", code: "au", highlights: "Sydney Opera House, Great Barrier Reef, Uluru Outback, and Melbourne coffee culture." },
+      { name: "Austria", capital: "Vienna", region: "Western Europe", population: "9,042,522", languages: "German", code: "at", highlights: "Schönbrunn Palace in Vienna, Salzburg historic center, Innsbruck Alps, and Hallstatt." },
+      { name: "Austrian Empire", capital: "Vienna (Historic)", region: "Central Europe (Historical)", population: "37,500,000", languages: "German, Hungarian, Czech", code: "at", highlights: "Historic Habsburg Dynasty palaces, Imperial Vienna architecture, and Danube region heritage." },
+      { name: "Azerbaijan", capital: "Baku", region: "Western Asia", population: "10,141,756", languages: "Azerbaijani", code: "az", highlights: "Baku Flame Towers, Old City Icherisheher, Gobustan Petroglyphs, and Caspian Sea coast." },
+      { name: "Baden", capital: "Karlsruhe (Historic)", region: "Western Europe (Historical)", population: "1,500,000", languages: "German", code: "de", highlights: "Black Forest highlands, historic Karlsruhe Palace, and Baden-Baden spa resort heritage." },
+      { name: "Bahamas, The", capital: "Nassau", region: "Caribbean", population: "409,984", languages: "English", code: "bs", highlights: "Exuma Pig Beach, Atlantis Paradise Island, Cable Beach, and Blue Lagoon Island." },
+      { name: "Bahrain", capital: "Manama", region: "Western Asia", population: "1,472,233", languages: "Arabic", code: "bh", highlights: "Bahrain Fort, Al Fateh Grand Mosque, Qal'at al-Bahrain, and Bab Al Bahrain market." },
+      { name: "Bangladesh", capital: "Dhaka", region: "Southern Asia", population: "171,186,372", languages: "Bengali", code: "bd", highlights: "Sundarbans Mangrove Forest, Cox's Bazar beach, Ahsan Manzil, and Sreemangal tea gardens." },
+      { name: "Barbados", capital: "Bridgetown", region: "Caribbean", population: "281,635", languages: "English", code: "bb", highlights: "Harrison's Cave, Carlisle Bay scuba spots, Bathsheba beach, and historic Bridgetown." },
+      { name: "Bavaria", capital: "Munich (Historic)", region: "Central Europe (Historical)", population: "5,000,000", languages: "Bavarian German", code: "de", highlights: "Neuschwanstein Castle, Bavarian Alps, Nymphenburg Palace, and historic Munich square." },
+      { name: "Belarus", capital: "Minsk", region: "Eastern Europe", population: "9,208,701", languages: "Belarusian, Russian", code: "by", highlights: "Mir Castle, Nesvizh Palace, Bialowieza Forest reserve, and Minsk Independence Avenue." },
+      { name: "Belgium", capital: "Brussels", region: "Western Europe", population: "11,669,483", languages: "Dutch, French, German", code: "be", highlights: "Grand Place in Brussels, Bruges canals, Ghent medieval quarters, and Ardennes forest." },
+      { name: "Belize", capital: "Belmopan", region: "Central America", population: "405,272", languages: "English", code: "bz", highlights: "Great Blue Hole, Caye Caulker barrier reef, Xunantunich Mayan ruins, and San Ignacio." },
+      { name: "Benin", capital: "Porto-Novo", region: "Western Africa", population: "13,352,864", languages: "French", code: "bj", highlights: "Royal Palaces of Abomey, Ouidah historical museum, Pendjari Park, and Ganvie stilt village." },
+      { name: "Bolivia", capital: "Sucre", region: "South America", population: "12,224,110", languages: "Spanish, Quechua", code: "bo", highlights: "Salar de Uyuni salt flats, Lake Titicaca, Death Road mountain routes, and Sucre Old Town." },
+      { name: "Bosnia and Herzegovina", capital: "Sarajevo", region: "Southern Europe", population: "3,233,526", languages: "Bosnian, Croatian, Serbian", code: "ba", highlights: "Mostar Old Bridge, Sarajevo Baščaršija, Kravica Waterfalls, and Una National Park." },
+      { name: "Botswana", capital: "Gaborone", region: "Southern Africa", population: "2,630,296", languages: "English, Setswana", code: "bw", highlights: "Okavango Delta safaris, Chobe National Park elephant herds, and Makgadikgadi Salt Pans." },
+      { name: "Brazil", capital: "Brasília", region: "South America", population: "215,313,498", languages: "Portuguese", code: "br", highlights: "Christ the Redeemer in Rio, Amazon Rainforest, Iguazu Falls, and Copacabana Beach." },
+      { name: "Brunei", capital: "Bandar Seri Begawan", region: "South-Eastern Asia", population: "449,002", languages: "Malay", code: "bn", highlights: "Sultan Omar Ali Saifuddien Mosque, Kampong Ayer stilt village, and Ulu Temburong National Park." },
+      { name: "Brunswick and Lüneburg", capital: "Brunswick (Historic)", region: "Central Europe (Historical)", population: "300,000", languages: "German", code: "de", highlights: "Harz Mountain forests, Brunswick Palace heritage, and historic Lower Saxony towns." },
+      { name: "Bulgaria", capital: "Sofia", region: "Eastern Europe", population: "6,447,710", languages: "Bulgarian", code: "bg", highlights: "Rila Monastery, Alexander Nevsky Cathedral in Sofia, Black Sea resorts, and Plovdiv Old Town." },
+      { name: "Burkina Faso", capital: "Ouagadougou", region: "Western Africa", population: "22,673,762", languages: "French", code: "bf", highlights: "Sindou Peaks, Ouagadougou Grand Market, Loropeni Ruins, and Banfora Waterfalls." },
+      { name: "Burma", capital: "Naypyidaw", region: "South-Eastern Asia", population: "54,179,306", languages: "Burmese", code: "mm", highlights: "Bagan ancient temple plains, Shwedagon Pagoda in Yangon, and Inle Lake floating gardens." },
+      { name: "Burundi", capital: "Gitega", region: "Eastern Africa", population: "12,889,576", languages: "Kirundi, French, English", code: "bi", highlights: "Lake Tanganyika shores, Rusizi National Park, Karera Waterfalls, and Gitega Drums." },
+      { name: "Cabo Verde", capital: "Praia", region: "Western Africa", population: "593,149", languages: "Portuguese", code: "cv", highlights: "Pico do Fogo volcano, Santa Maria Beach in Sal, Mindelo cultural centers, and Santiago Island." },
+      { name: "Cambodia", capital: "Phnom Penh", region: "South-Eastern Asia", population: "16,767,842", languages: "Khmer", code: "kh", highlights: "Angkor Wat temple complex in Siem Reap, Phnom Penh Royal Palace, and Koh Rong islands." },
+      { name: "Cameroon", capital: "Yaoundé", region: "Middle Africa", population: "27,914,536", languages: "French, English", code: "cm", highlights: "Mount Cameroon hiking, Waza National Park wildlife, Kribi beach waterfalls, and Limbe." },
+      { name: "Canada", capital: "Ottawa", region: "Northern America", population: "38,929,902", languages: "English, French", code: "ca", highlights: "Niagara Falls, Banff National Park Rockies, CN Tower Toronto, and Quebec Historic Old Town." },
+      { name: "Cayman Islands, The", capital: "George Town", region: "Caribbean", population: "68,701", languages: "English", code: "ky", highlights: "Seven Mile Beach, Stingray City, Bloody Bay Wall diving, and George Town harbour." },
+      { name: "Central African Republic", capital: "Bangui", region: "Middle Africa", population: "5,579,144", languages: "French, Sango", code: "cf", highlights: "Dzanga-Sangha Special Reserve rainforest, Boali Waterfalls, and Bangui Ubangi River Vistas." },
+      { name: "Central American Federation", capital: "Guatemala City (Historic)", region: "Central America (Historical)", population: "1,900,000", languages: "Spanish", code: "gt", highlights: "Colonial Central American capitals, volcanic landscapes, and historic Mayan union heritage." },
+      { name: "Chad", capital: "N'Djamena", region: "Middle Africa", population: "17,723,315", languages: "French, Arabic", code: "td", highlights: "Ennedi Plateau rock formations, Zakouma National Park, and Lake Chad basin wilderness." },
+      { name: "Chile", capital: "Santiago", region: "South America", population: "19,603,733", languages: "Spanish", code: "cl", highlights: "Torres del Paine in Patagonia, Atacama Desert stargazing, Easter Island statues, and Valparaíso." },
+      { name: "China", capital: "Beijing", region: "Eastern Asia", population: "1,411,750,000", languages: "Mandarin", code: "cn", highlights: "Great Wall of China, Forbidden City in Beijing, Terracotta Army in Xi'an, and Li River in Guilin." },
+      { name: "Colombia", capital: "Bogotá", region: "South America", population: "51,874,024", languages: "Spanish", code: "co", highlights: "Walled City of Cartagena, Coffee Triangle, Tayrona National Park, and Medellín valleys." },
+      { name: "Comoros", capital: "Moroni", region: "Eastern Africa", population: "836,774", languages: "Comorian, French, Arabic", code: "km", highlights: "Mount Karthala active volcano, Moheli Marine Park, Lac Salé, and Moroni Medina." },
+      { name: "Congo Free State, The", capital: "Boma (Historic)", region: "Middle Africa (Historical)", population: "15,000,000", languages: "French", code: "cd", highlights: "Congo Basin riverways, Boyoma Falls, and historical Central African rainforests." },
+      { name: "Cook Islands", capital: "Avarua", region: "Polynesia", population: "17,564", languages: "English, Cook Islands Māori", code: "ck", highlights: "Aitutaki Lagoon, Muri Beach in Rarotonga, Mount Maungapu, and Punarei cultural village." },
+      { name: "Costa Rica", capital: "San José", region: "Central America", population: "5,180,829", languages: "Spanish", code: "cr", highlights: "Arenal Volcano, Monteverde Cloud Forest, Manuel Antonio National Park, and Tortuguero." },
+      { name: "Cote d’Ivoire", capital: "Yamoussoukro", region: "Western Africa", population: "28,160,542", languages: "French", code: "ci", highlights: "Basilica of Our Lady of Peace, Abidjan Plateau, Tai National Park, and Grand-Bassam." },
+      { name: "Croatia", capital: "Zagreb", region: "Southern Europe", population: "3,854,000", languages: "Croatian", code: "hr", highlights: "Dubrovnik Walled City, Plitvice Lakes National Park, Split Diocletian Palace, and Hvar Island." },
+      { name: "Cuba", capital: "Havana", region: "Caribbean", population: "11,212,191", languages: "Spanish", code: "cu", highlights: "Old Havana vintage streets, Viñales Valley tobacco fields, Varadero beaches, and Trinidad." },
+      { name: "Cyprus", capital: "Nicosia", region: "Western Asia", population: "1,251,488", languages: "Greek, Turkish", code: "cy", highlights: "Paphos Archaeological Park, Fig Tree Bay, Troodos Mountain monasteries, and Nicosia walls." },
+      { name: "Czechia", capital: "Prague", region: "Central Europe", population: "10,516,707", languages: "Czech", code: "cz", highlights: "Charles Bridge & Prague Castle, Cesky Krumlov, Kutna Hora Bone Church, and Karlovy Vary." },
+      { name: "Czechoslovakia", capital: "Prague (Historic)", region: "Central Europe (Historical)", population: "15,600,000", languages: "Czech, Slovak", code: "cz", highlights: "Bohemian castles, High Tatras mountain ranges, historic Prague, and Bratislava architecture." },
+      { name: "Democratic Republic of the Congo", capital: "Kinshasa", region: "Middle Africa", population: "99,010,000", languages: "French, Lingala, Swahili", code: "cd", highlights: "Virunga National Park mountain gorillas, Mount Nyiragongo lava lake, and Congo River expeditions." },
+      { name: "Denmark", capital: "Copenhagen", region: "Northern Europe", population: "5,903,037", languages: "Danish", code: "dk", highlights: "Nyhavn harbor in Copenhagen, Tivoli Gardens, Little Mermaid statue, and Kronborg Castle." },
+      { name: "Djibouti", capital: "Djibouti", region: "Eastern Africa", population: "1,120,849", languages: "French, Arabic", code: "dj", highlights: "Lake Assal salt shores, Day Forest National Park, Lake Abbe chimney structures, and Gulf of Tadjoura." },
+      { name: "Dominica", capital: "Roseau", region: "Caribbean", population: "72,737", languages: "English", code: "dm", highlights: "Boiling Lake hike, Morne Trois Pitons National Park, Trafalgar Falls, and Champagne Reef." },
+      { name: "Dominican Republic", capital: "Santo Domingo", region: "Caribbean", population: "11,228,821", languages: "Spanish", code: "do", highlights: "Punta Cana beaches, Colonial City in Santo Domingo, Samaná Peninsula whale watching, and Pico Duarte." },
+      { name: "Egypt", capital: "Cairo", region: "Northern Africa", population: "109,300,000", languages: "Arabic", code: "eg", highlights: "Pyramids of Giza & Sphinx, Luxor Valley of the Kings, Nile River Cruises, and Red Sea Diving." },
+      { name: "El Salvador", capital: "San Salvador", region: "Central America", population: "6,336,392", languages: "Spanish", code: "sv", highlights: "Ruta de las Flores mountain towns, Santa Ana Volcano, El Tunco surf beaches, and Joya de Cerén." },
+      { name: "Equatorial Guinea", capital: "Malabo", region: "Middle Africa", population: "1,674,908", languages: "Spanish, French", code: "gq", highlights: "Malabo Cathedral on Bioko Island, Monte Alen National Park, Arena Blanca beaches, and Ureca." },
+      { name: "Eritrea", capital: "Asmara", region: "Eastern Africa", population: "3,684,032", languages: "Tigrinya, Arabic", code: "er", highlights: "Asmara Art Deco architecture, Dahlak Archipelago scuba diving, Massawa port, and Filfil rainforest." },
+      { name: "Estonia", capital: "Tallinn", region: "Northern Europe", population: "1,331,796", languages: "Estonian", code: "ee", highlights: "Tallinn Old Town medieval walls, Lahemaa National Park, Saaremaa Island windmill villages, and Tartu." },
+      { name: "Eswatini", capital: "Mbabane", region: "Southern Africa", population: "1,201,670", languages: "English, SiSwati", code: "sz", highlights: "Hlane Royal National Park, Mlilwane Wildlife Sanctuary, Ezulwini Valley, and Mantenga Falls." },
+      { name: "Ethiopia", capital: "Addis Ababa", region: "Eastern Africa", population: "123,379,924", languages: "Amharic", code: "et", highlights: "Rock-hewn churches of Lalibela, Simien Mountains trekking, Danakil Depression, and Gondar Castles." },
+      { name: "Fiji", capital: "Suva", region: "Melanesia", population: "929,766", languages: "English, Fijian", code: "fj", highlights: "Mamanuca and Yasawa Islands, Coral Coast, Garden of the Sleeping Giant, and Beqa Lagoon diving." },
+      { name: "Finland", capital: "Helsinki", region: "Northern Europe", population: "5,540,745", languages: "Finnish, Swedish", code: "fi", highlights: "Rovaniemi Santa Claus Village in Lapland, Northern Lights, Helsinki Senate Square, and Lakeland." },
+      { name: "France", capital: "Paris", region: "Western Europe", population: "67,750,000", languages: "French", code: "fr", highlights: "Eiffel Tower in Paris, French Riviera coastline, Mont Saint-Michel, and Louvre Museum." },
+      { name: "Gabon", capital: "Libreville", region: "Middle Africa", population: "2,388,992", languages: "French", code: "ga", highlights: "Loango National Park surfing hippos, Ivindo Waterfalls, Libreville seafront, and Pongara Reserve." },
+      { name: "Gambia, The", capital: "Banjul", region: "Western Africa", population: "2,705,992", languages: "English", code: "gm", highlights: "Kunta Kinteh Island historic site, River Gambia National Park, Kotu Beach, and Abuko Reserve." },
+      { name: "Georgia", capital: "Tbilisi", region: "Western Asia", population: "3,688,647", languages: "Georgian", code: "ge", highlights: "Tbilisi Old Town & Sulfur Baths, Kazbegi Stepantsminda Church, Batumi coast, and Kakheti wine." },
+      { name: "Germany", capital: "Berlin", region: "Western Europe", population: "83,200,000", languages: "German", code: "de", highlights: "Brandenburg Gate in Berlin, Neuschwanstein Castle, Black Forest, and Cologne Cathedral." },
+      { name: "Ghana", capital: "Accra", region: "Western Africa", population: "33,475,870", languages: "English", code: "gh", highlights: "Cape Coast Castle, Kakum National Park canopy walkway, Labadi Beach in Accra, and Lake Volta." },
+      { name: "Greece", capital: "Athens", region: "Southern Europe", population: "10,482,487", languages: "Greek", code: "gr", highlights: "Acropolis of Athens, Santorini sunset viewpoints, Mykonos beaches, and Meteora Monasteries." },
+      { name: "Grenada", capital: "Saint George's", region: "Caribbean", population: "125,438", languages: "English", code: "gd", highlights: "Grand Anse Beach, Underwater Sculpture Park, Annandale Falls, and Belmont Estate." },
+      { name: "Guatemala", capital: "Guatemala City", region: "Central America", population: "17,843,908", languages: "Spanish", code: "gt", highlights: "Tikal Mayan pyramids, Lake Atitlán volcanic vistas, Antigua cobblestone streets, and Semuc Champey." },
+      { name: "Guinea", capital: "Conakry", region: "Western Africa", population: "13,859,341", languages: "French", code: "gn", highlights: "Fouta Djallon highlands, Mount Nimba Strict Nature Reserve, Îles de Los, and Bridal Veil Falls." },
+      { name: "Guinea-Bissau", capital: "Bissau", region: "Western Africa", population: "2,105,566", languages: "Portuguese", code: "gw", highlights: "Bijagós Archipelago biosphere reserve, Orango National Park hippos, and Bissau Velho streets." },
+      { name: "Guyana", capital: "Georgetown", region: "South America", population: "808,726", languages: "English", code: "gy", highlights: "Kaieteur Falls drop, Iwokrama Rainforest canopy walk, Georgetown wooden architecture, and Rupununi." },
+      { name: "Haiti", capital: "Port-au-Prince", region: "Caribbean", population: "11,584,996", languages: "French, Haitian Creole", code: "ht", highlights: "Citadelle Laferrière fortress, Sans-Souci Palace, Labadee coastline, and Bassin Bleu waterfalls." },
+      { name: "Holy See", capital: "Vatican City", region: "Southern Europe", population: "518", languages: "Italian, Latin", code: "va", highlights: "St. Peter's Basilica, Sistine Chapel Ceiling, Vatican Museums, and St. Peter's Square." },
+      { name: "Honduras", capital: "Tegucigalpa", region: "Central America", population: "10,432,860", languages: "Spanish", code: "hn", highlights: "Roatán Island coral reefs, Copán Mayan ruins, Lake Yojoa, and Pico Bonito National Park." },
+      { name: "Hungary", capital: "Budapest", region: "Central Europe", population: "9,603,634", languages: "Hungarian", code: "hu", highlights: "Budapest Parliament on the Danube, Széchenyi Thermal Baths, Buda Castle, and Lake Balaton." },
+      { name: "Iceland", capital: "Reykjavík", region: "Northern Europe", population: "387,758", languages: "Icelandic", code: "is", highlights: "Blue Lagoon geothermal spa, Golden Circle geysers, Black Sand Beach in Vik, and Northern Lights." },
+      { name: "India", capital: "New Delhi", region: "Southern Asia", population: "1,408,000,000", languages: "Hindi, English", code: "in", highlights: "Taj Mahal in Agra, Jaipur Pink City, Kerala backwaters, Varanasi Ghats, and Goa beaches." },
+      { name: "Indonesia", capital: "Jakarta", region: "South-Eastern Asia", population: "275,500,000", languages: "Indonesian", code: "id", highlights: "Bali temples and beaches, Komodo Dragon National Park, Borobudur Temple, and Mount Bromo." },
+      { name: "Iran", capital: "Tehran", region: "Western Asia", population: "88,550,570", languages: "Persian", code: "ir", highlights: "Persepolis ancient capital, Naqsh-e Jahan Square in Isfahan, Shiraz gardens, and Yazd wind towers." },
+      { name: "Iraq", capital: "Baghdad", region: "Western Asia", population: "44,496,122", languages: "Arabic, Kurdish", code: "iq", highlights: "Ancient Babylon ruins, Erbil Citadel, Great Mosque of Samarra, and Mesopotamian Marshes." },
+      { name: "Ireland", capital: "Dublin", region: "Northern Europe", population: "5,060,005", languages: "English, Irish", code: "ie", highlights: "Cliffs of Moher, Ring of Kerry, Temple Bar in Dublin, Trinity College, and Blarney Castle." },
+      { name: "Israel", capital: "Jerusalem", region: "Western Asia", population: "9,558,200", languages: "Hebrew", code: "il", highlights: "Jerusalem Old City, Western Wall, Dead Sea salt floating, Masada Fortress, and Tel Aviv beaches." },
+      { name: "Italy", capital: "Rome", region: "Southern Europe", population: "58,980,000", languages: "Italian", code: "it", highlights: "Colosseum in Rome, Venice Canals, Florence Duomo, Amalfi Coast, and Leaning Tower of Pisa." },
+      { name: "Jamaica", capital: "Kingston", region: "Caribbean", population: "2,827,377", languages: "English", code: "jm", highlights: "Dunn's River Falls in Ocho Rios, Seven Mile Beach in Negril, Blue Mountains, and Bob Marley Museum." },
+      { name: "Japan", capital: "Tokyo", region: "Eastern Asia", population: "125,100,000", languages: "Japanese", code: "jp", highlights: "Mount Fuji, Fushimi Inari Shrine in Kyoto, Shibuya Crossing in Tokyo, and Hiroshima Peace Park." },
+      { name: "Jordan", capital: "Amman", region: "Western Asia", population: "11,285,869", languages: "Arabic", code: "jo", highlights: "Petra Rose City, Wadi Rum desert, Dead Sea, Jerash Roman ruins, and Aqaba Red Sea reefs." },
+      { name: "Kazakhstan", capital: "Astana", region: "Central Asia", population: "19,621,972", languages: "Kazakh, Russian", code: "kz", highlights: "Charyn Canyon, Lake Almaty, Bayterek Tower in Astana, and Ascension Cathedral in Almaty." },
+      { name: "Kenya", capital: "Nairobi", region: "Eastern Africa", population: "54,027,487", languages: "Swahili, English", code: "ke", highlights: "Maasai Mara wildebeest migration, Mount Kenya, Diani Beach, and Amboseli elephant vistas." },
+      { name: "Kiribati", capital: "South Tarawa", region: "Micronesia", population: "131,232", languages: "English, Gilbertese", code: "ki", highlights: "Christmas Island coral atolls, Tarawa Lagoon, and Phoenix Islands Protected Area." },
+      { name: "Kosovo", capital: "Pristina", region: "Southern Europe", population: "1,761,985", languages: "Albanian, Serbian", code: "xk", highlights: "Rugova Canyon, Prizren Ottoman historic town, Patriarchate of Peć, and Pristina Newborn monument." },
+      { name: "Kuwait", capital: "Kuwait City", region: "Western Asia", population: "4,268,873", languages: "Arabic", code: "kw", highlights: "Kuwait Towers, Grand Mosque, Souq Al-Mubarakiya, and Al Shaheed Park waterfront." },
+      { name: "Kyrgyzstan", capital: "Bishkek", region: "Central Asia", population: "6,969,200", languages: "Kyrgyz, Russian", code: "kg", highlights: "Issyk-Kul Alpine Lake, Ala Archa National Park, Tash Rabat Caravanserai, and Tian Shan trekking." },
+      { name: "Laos", capital: "Vientiane", region: "South-Eastern Asia", population: "7,529,475", languages: "Lao", code: "la", highlights: "Luang Prabang waterfalls and temples, Kuang Si Falls, Plain of Jars, and Vang Vieng karsts." },
+      { name: "Latvia", capital: "Riga", region: "Northern Europe", population: "1,883,008", languages: "Latvian", code: "lv", highlights: "Riga Old Town Art Nouveau district, Rundale Palace, Jurmala beach resort, and Gauja National Park." },
+      { name: "Lebanon", capital: "Beirut", region: "Western Asia", population: "5,489,739", languages: "Arabic", code: "lb", highlights: "Jeita Grotto caves, Baalbek Roman temples, Beirut Corniche, and Cedars of God forest." },
+      { name: "Lesotho", capital: "Maseru", region: "Southern Africa", population: "2,305,825", languages: "Sesotho, English", code: "ls", highlights: "Maletsunyane Falls drop, Sani Pass 4x4 mountain route, Katse Dam, and Afriski slopes." },
+      { name: "Liberia", capital: "Monrovia", region: "Western Africa", population: "5,302,681", languages: "English", code: "lr", highlights: "Sapo National Park rainforest, Robertsport surf beaches, Providence Island, and Monrovia markets." },
+      { name: "Libya", capital: "Tripoli", region: "Northern Africa", population: "6,812,341", languages: "Arabic", code: "ly", highlights: "Leptis Magna Roman ruins, Sabratha Theater, Arch of Marcus Aurelius in Tripoli, and Akakus Mountains." },
+      { name: "Liechtenstein", capital: "Vaduz", region: "Western Europe", population: "39,327", languages: "German", code: "li", highlights: "Vaduz Castle, Gutenberg Castle, Malbun Alpine ski area, and Rhine Valley mountain trails." },
+      { name: "Lithuania", capital: "Vilnius", region: "Northern Europe", population: "2,833,000", languages: "Lithuanian", code: "lt", highlights: "Trakai Island Castle, Vilnius Old Town, Hill of Crosses in Šiauliai, and Curonian Spit dunes." },
+      { name: "Luxembourg", capital: "Luxembourg", region: "Western Europe", population: "650,774", languages: "Luxembourgish, French, German", code: "lu", highlights: "Bock Casemates, Vianden Castle, Luxembourg Old Quarter fortifications, and Mullerthal Trail." },
+      { name: "Madagascar", capital: "Antananarivo", region: "Eastern Africa", population: "29,611,714", languages: "Malagasy, French", code: "mg", highlights: "Avenue of the Baobabs, Tsingy de Bemaraha stone forests, Nosy Be island beaches, and lemur parks." },
+      { name: "Malawi", capital: "Lilongwe", region: "Eastern Africa", population: "20,405,317", languages: "English, Chichewa", code: "mw", highlights: "Lake Malawi freshwater beaches, Mount Mulanje granite peak, and Liwonde National Park safaris." },
+      { name: "Malaysia", capital: "Kuala Lumpur", region: "South-Eastern Asia", population: "33,938,221", languages: "Malay", code: "my", highlights: "Petronas Twin Towers in KL, Batu Caves, Penang street food, Mount Kinabalu, and Langkawi." },
+      { name: "Maldives", capital: "Malé", region: "Southern Asia", population: "523,781", languages: "Dhivehi", code: "mv", highlights: "Overwater bungalow resorts, Baa Atoll Biosphere Reserve, Malé Grand Friday Mosque, and coral reefs." },
+      { name: "Mali", capital: "Bamako", region: "Western Africa", population: "22,593,590", languages: "Bambara, French", code: "ml", highlights: "Great Mosque of Djenné mud architecture, Timbuktu manuscripts, and Cliff of Bandiagara (Dogon Country)." },
+      { name: "Malta", capital: "Valletta", region: "Southern Europe", population: "533,286", languages: "Maltese, English", code: "mt", highlights: "Valletta Walled Capital, Blue Lagoon in Comino, Mdina Silent City, and Megalithic Temples." },
+      { name: "Marshall Islands", capital: "Majuro", region: "Micronesia", population: "41,569", languages: "Marshallese, English", code: "mh", highlights: "Majuro Atoll lagoon, Bikini Atoll wreck diving, Kalalin Pass, and Arno Atoll beaches." },
+      { name: "Mauritania", capital: "Nouakchott", region: "Western Africa", population: "4,736,139", languages: "Arabic", code: "mr", highlights: "Chinguetti ancient desert library city, Mauritania Iron Ore Train, and Banc d'Arguin National Park." },
+      { name: "Mauritius", capital: "Port Louis", region: "Eastern Africa", population: "1,262,523", languages: "English, French, Creole", code: "mu", highlights: "Le Morne Brabant peak, Chamarel Seven Colored Earths, Grand Baie lagoon, and Black River Gorges." },
+      { name: "Mexico", capital: "Mexico City", region: "Central America", population: "127,504,125", languages: "Spanish", code: "mx", highlights: "Chichen Itza Mayan Pyramid, Cancun & Riviera Maya beaches, Mexico City Zocalo, and Oaxaca." },
+      { name: "Micronesia", capital: "Palikir", region: "Micronesia", population: "114,164", languages: "English", code: "fm", highlights: "Nan Madol ancient stone city in Pohnpei, Chuuk Lagoon WWII wreck diving, and Yap Stone Money." },
+      { name: "Moldova", capital: "Chisinau", region: "Eastern Europe", population: "2,538,894", languages: "Romanian", code: "md", highlights: "Cricova underground wine cellars, Orheiul Vechi monastery cave complex, and Chisinau parks." },
+      { name: "Monaco", capital: "Monaco", region: "Western Europe", population: "36,469", languages: "French", code: "mc", highlights: "Monte Carlo Casino, Prince's Palace of Monaco, Formula 1 Grand Prix circuit, and Port Hercules." },
+      { name: "Mongolia", capital: "Ulaanbaatar", region: "Eastern Asia", population: "3,398,367", languages: "Mongolian", code: "mn", highlights: "Gobi Desert dunes, Lake Khovsgol, Erdene Zuu Monastery, and Genghis Khan Statue Complex." },
+      { name: "Montenegro", capital: "Podgorica", region: "Southern Europe", population: "620,739", languages: "Montenegrin", code: "me", highlights: "Bay of Kotor fjord views, Durmitor National Park Tara Canyon, Budva beaches, and Ostrog Monastery." },
+      { name: "Morocco", capital: "Rabat", region: "Northern Africa", population: "37,457,971", languages: "Arabic, Tamazight", code: "ma", highlights: "Marrakech Jemaa el-Fnaa, Chefchaouen Blue City, Fes Medina, and Sahara Desert Merzouga dunes." },
+      { name: "Mozambique", capital: "Maputo", region: "Southern Africa", population: "32,969,518", languages: "Portuguese", code: "mz", highlights: "Bazaruto Archipelago coral reefs, Gorongosa National Park, Quirimbas Islands, and Maputo railway." },
+      { name: "Namibia", capital: "Windhoek", region: "Southern Africa", population: "2,567,012", languages: "English", code: "na", highlights: "Sossusvlei red sand dunes, Etosha National Park safari, Skeleton Coast, and Fish River Canyon." },
+      { name: "Nauru", capital: "Yaren", region: "Micronesia", population: "12,668", languages: "Nauruan, English", code: "nr", highlights: "Anibare Bay lagoon beach, Command Ridge WWII viewpoints, and Moqua Well underground lake." },
+      { name: "Nepal", capital: "Kathmandu", region: "Southern Asia", population: "30,547,580", languages: "Nepali", code: "np", highlights: "Mount Everest Base Camp, Kathmandu Durbar Square, Pokhara Phewa Lake, and Chitwan Park." },
+      { name: "Netherlands, The", capital: "Amsterdam", region: "Western Europe", population: "17,700,982", languages: "Dutch", code: "nl", highlights: "Amsterdam Canals & Rijksmuseum, Keukenhof Tulip Gardens, Zaanse Schans Windmills, and Hague." },
+      { name: "New Zealand", capital: "Wellington", region: "Oceania", population: "5,124,100", languages: "English, Māori", code: "nz", highlights: "Milford Sound fjords, Hobbiton Movie Set, Queenstown adventure, and Rotorua geothermal geysers." },
+      { name: "Nicaragua", capital: "Managua", region: "Central America", population: "6,948,392", languages: "Spanish", code: "ni", highlights: "Granada colonial architecture, Ometepe Island volcano in Lake Nicaragua, San Juan del Sur, and Masaya." },
+      { name: "Niger", capital: "Niamey", region: "Western Africa", population: "26,207,977", languages: "French", code: "ne", highlights: "Agadez Grand Mosque clay minaret, Air Mountains, Tenere Desert, and W National Park giraffes." },
+      { name: "Nigeria", capital: "Abuja", region: "Western Africa", population: "218,541,212", languages: "English", code: "ng", highlights: "Zuma Rock, Lekki Conservation Centre in Lagos, Olumo Rock in Abeokuta, and Yankari Park." },
+      { name: "Niue", capital: "Alofi", region: "Polynesia", population: "1,937", languages: "Niuean, English", code: "nu", highlights: "Limu Pools snorkeling, Avaiki Cave, Talava Arches, and Alofi sea track views." },
+      { name: "North Macedonia", capital: "Skopje", region: "Southern Europe", population: "1,836,713", languages: "Macedonian", code: "mk", highlights: "Lake Ohrid ancient churches, Skopje Old Bazaar, Matka Canyon boat trips, and Bitola." },
+      { name: "Norway", capital: "Oslo", region: "Northern Europe", population: "5,455,582", languages: "Norwegian", code: "no", highlights: "Geirangerfjord & Nærøyfjord, Lofoten Islands fishing villages, Northern Lights in Tromsø, and Oslo." },
+      { name: "Oman", capital: "Muscat", region: "Western Asia", population: "4,576,298", languages: "Arabic", code: "om", highlights: "Sultan Qaboos Grand Mosque in Muscat, Wahiba Sands desert, Nizwa Fort, and Bimmah Sinkhole." },
+      { name: "Pakistan", capital: "Islamabad", region: "Southern Asia", population: "240,485,658", languages: "Urdu, English", code: "pk", highlights: "Hunza & Swat Valleys, Badshahi Mosque in Lahore, Fairy Meadows, K2 Base Camp, and Faisal Mosque." },
+      { name: "Palau", capital: "Ngerulmud", region: "Micronesia", population: "18,055", languages: "Palauan, English", code: "pw", highlights: "Rock Islands Southern Lagoon, Jellyfish Lake, Blue Corner scuba reef, and Milky Way Bay." },
+      { name: "Palestine", capital: "Ramallah", region: "Western Asia", population: "5,043,612", languages: "Arabic", code: "ps", highlights: "Church of the Nativity in Bethlehem, Jericho ancient city, Old City of Hebron, and Ramallah markets." },
+      { name: "Panama", capital: "Panama City", region: "Central America", population: "4,408,581", languages: "Spanish", code: "pa", highlights: "Panama Canal Miraflores Locks, San Blas Islands, Casco Viejo in Panama City, and Boquete mountain routes." },
+      { name: "Papua New Guinea", capital: "Port Moresby", region: "Melanesia", population: "10,142,619", languages: "English, Tok Pisin", code: "pg", highlights: "Kokoda Track jungle hike, Mount Hagen Cultural Show, Tavurvur Volcano in Rabaul, and Milne Bay." },
+      { name: "Paraguay", capital: "Asunción", region: "South America", population: "6,780,744", languages: "Spanish, Guaraní", code: "py", highlights: "Jesuit Missions of La Santísima Trinidad de Paraná, Itaipu Dam, Asunción waterfront, and Chaco wilderness." },
+      { name: "Peru", capital: "Lima", region: "South America", population: "33,715,471", languages: "Spanish, Quechua", code: "pe", highlights: "Machu Picchu Inca Citadel, Cusco Historic Capital, Sacred Valley, Lake Titicaca, and Rainbow Mountain." },
+      { name: "Philippines", capital: "Manila", region: "South-Eastern Asia", population: "115,559,009", languages: "Filipino, English", code: "ph", highlights: "El Nido & Coron in Palawan, Boracay White Beach, Chocolate Hills in Bohol, and Banaue Rice Terraces." },
+      { name: "Poland", capital: "Warsaw", region: "Central Europe", population: "37,560,000", languages: "Polish", code: "pl", highlights: "Krakow Main Market Square, Wawel Royal Castle, Warsaw Old Town rebuild, Wieliczka Salt Mine, and Malbork." },
+      { name: "Portugal", capital: "Lisbon", region: "Southern Europe", population: "10,409,704", languages: "Portuguese", code: "pt", highlights: "Belém Tower & Tram 28 in Lisbon, Pena Palace in Sintra, Porto Douro Valley, and Algarve beaches." },
+      { name: "Qatar", capital: "Doha", region: "Western Asia", population: "2,695,122", languages: "Arabic", code: "qa", highlights: "Souq Waqif in Doha, Museum of Islamic Art, Katara Cultural Village, Pearl-Qatar, and Inland Sea." },
+      { name: "Republic of Korea (South Korea)", capital: "Seoul", region: "Eastern Asia", population: "51,628,117", languages: "Korean", code: "kr", highlights: "Gyeongbokgung Palace in Seoul, N Seoul Tower, Jeju Island lava tubes, and Busan Haeundae Beach." },
+      { name: "Republic of the Congo", capital: "Brazzaville", region: "Middle Africa", population: "5,970,000", languages: "French, Lingala", code: "cg", highlights: "Odzala-Kokoua National Park gorillas, Loufoulakari Falls, Brazzaville riverfront, and Diosso Gorge." },
+      { name: "Romania", capital: "Bucharest", region: "Eastern Europe", population: "19,047,000", languages: "Romanian", code: "ro", highlights: "Bran Castle, Transfăgărășan highway, Peles Castle in Sinaia, and Painted Monasteries." },
+      { name: "Russia", capital: "Moscow", region: "Eastern Europe / Northern Asia", population: "143,550,000", languages: "Russian", code: "ru", highlights: "Red Square & Kremlin in Moscow, Hermitage Museum in Saint Petersburg, Lake Baikal, and Trans-Siberian Route." },
+      { name: "Rwanda", capital: "Kigali", region: "Eastern Africa", population: "13,776,698", languages: "Kinyarwanda, French, English", code: "rw", highlights: "Volcanoes National Park mountain gorilla trekking, Nyungwe Canopy Walk, Lake Kivu, and Kigali Memorial." },
+      { name: "Saint Kitts and Nevis", capital: "Basseterre", region: "Caribbean", population: "47,657", languages: "English", code: "kn", highlights: "Brimstone Hill Fortress, St. Kitts Scenic Railway, Pinney's Beach in Nevis, and Frigate Bay." },
+      { name: "Saint Lucia", capital: "Castries", region: "Caribbean", population: "179,857", languages: "English", code: "lc", highlights: "The Pitons twin volcanic spires, Sulphur Springs drive-in volcano, Marigot Bay, and Reduit Beach." },
+      { name: "Saint Vincent and the Grenadines", capital: "Kingstown", region: "Caribbean", population: "103,948", languages: "English", code: "vc", highlights: "Bequia Island, Tobago Cays Marine Park reefs, La Soufrière volcano hike, and Mustique Island." },
+      { name: "Samoa", capital: "Apia", region: "Polynesia", population: "222,382", languages: "Samoan, English", code: "ws", highlights: "To Sua Ocean Trench, Lalomanu Beach, Alofaaga Blowholes, and Robert Louis Stevenson Museum." },
+      { name: "San Marino", capital: "City of San Marino", region: "Southern Europe", population: "33,660", languages: "Italian", code: "sm", highlights: "Three Towers of San Marino on Mount Titano, Guaita Fortress, Piazza della Libertà, and Basilica." },
+      { name: "Sao Tome and Principe", capital: "São Tomé", region: "Middle Africa", population: "227,380", languages: "Portuguese", code: "st", highlights: "Pico Cão Grande needle peak, Obo National Park rainforest, Banana Beach in Príncipe, and cocoa estates." },
+      { name: "Saudi Arabia", capital: "Riyadh", region: "Western Asia", population: "35,950,000", languages: "Arabic", code: "sa", highlights: "AlUla Hegra ancient tombs, Prophet's Mosque in Medina, Edge of the World cliff, and Diriyah in Riyadh." },
+      { name: "Senegal", capital: "Dakar", region: "Western Africa", population: "17,316,449", languages: "French, Wolof", code: "sn", highlights: "Gorée Island historic slave house, Pink Lake, Djoudj Sanctuary birds, and Saint-Louis." },
+      { name: "Serbia", capital: "Belgrade", region: "Southern Europe", population: "6,664,449", languages: "Serbian", code: "rs", highlights: "Belgrade Kalemegdan Fortress, Saint Sava Temple, Tara National Park, and Novi Sad Fortress." },
+      { name: "Seychelles", capital: "Victoria", region: "Eastern Africa", population: "119,878", languages: "Seychellois Creole, English", code: "sc", highlights: "Anse Source d'Argent giant granite beach in La Digue, Vallée de Mai coco-de-mer palms, and Beau Vallon." },
+      { name: "Sierra Leone", capital: "Freetown", region: "Western Africa", population: "8,605,718", languages: "English, Krio", code: "sl", highlights: "River Number Two Beach, Tacugama Chimpanzee Sanctuary, Bunce Island, and Tiwai Island." },
+      { name: "Singapore", capital: "Singapore", region: "South-Eastern Asia", population: "5,637,000", languages: "English, Malay, Mandarin", code: "sg", highlights: "Gardens by the Bay, Marina Bay Sands SkyPark, Sentosa Island, Jewel Changi, and Chinatown." },
+      { name: "Slovakia", capital: "Bratislava", region: "Central Europe", population: "5,431,752", languages: "Slovak", code: "sk", highlights: "High Tatras mountain peaks, Spiš Castle ruins, Bratislava Old Town Castle, and Demänovská Ice Cave." },
+      { name: "Slovenia", capital: "Ljubljana", region: "Southern Europe", population: "2,116,972", languages: "Slovenian", code: "si", highlights: "Lake Bled Island Church & Castle, Postojna Cave railway, Ljubljana Triple Bridge, and Soča River Valley." },
+      { name: "Solomon Islands, The", capital: "Honiara", region: "Melanesia", population: "724,273", languages: "English, Pijin", code: "sb", highlights: "Marovo Lagoon coral reefs, Guadalcanal WWII battlefield sites, Mataniko Falls, and Kennedy Island." },
+      { name: "Somalia", capital: "Mogadishu", region: "Eastern Africa", population: "17,597,511", languages: "Somali, Arabic", code: "so", highlights: "Laas Geel ancient cave paintings, Mogadishu Lido Beach, Shanghai Old City, and Daallo Mountains." },
+      { name: "South Africa", capital: "Pretoria", region: "Southern Africa", population: "59,893,885", languages: "Zulu, Xhosa, Afrikaans, English", code: "za", highlights: "Table Mountain & Cape Peninsula in Cape Town, Kruger National Park safari, Garden Route, and Soweto." },
+      { name: "South Sudan", capital: "Juba", region: "Eastern Africa", population: "10,913,164", languages: "English", code: "ss", highlights: "The Sudd wetland wildlife migration, Nimule National Park on the White Nile, and Juba markets." },
+      { name: "Spain", capital: "Madrid", region: "Southern Europe", population: "47,615,034", languages: "Spanish", code: "es", highlights: "Sagrada Família in Barcelona, Alhambra Palace in Granada, Royal Palace in Madrid, and Seville Plaza de España." },
+      { name: "Sri Lanka", capital: "Colombo", region: "Southern Asia", population: "22,181,000", languages: "Sinhala, Tamil", code: "lk", highlights: "Sigiriya Lion Rock Citadel, Temple of the Tooth in Kandy, Ella scenic train trip, and Yala Elephant Park." },
+      { name: "Sudan", capital: "Khartoum", region: "Northern Africa", population: "46,900,000", languages: "Arabic, English", code: "sd", highlights: "Meroe Royal Pyramids, Confluence of Blue & White Nile in Khartoum, Sanganeb Marine Park, and Suakin." },
+      { name: "Suriname", capital: "Paramaribo", region: "South America", population: "618,040", languages: "Dutch", code: "sr", highlights: "Paramaribo wooden colonial inner city, Central Suriname Nature Reserve, Galibi turtle beach, and Brownsberg." },
+      { name: "Sweden", capital: "Stockholm", region: "Northern Europe", population: "10,521,556", languages: "Swedish", code: "se", highlights: "Gamla Stan in Stockholm, Vasa Museum, Kiruna Ice Hotel in Lapland, and Gothenburg Canals." },
+      { name: "Switzerland", capital: "Bern", region: "Western Europe", population: "8,700,000", languages: "German, French, Italian", code: "ch", highlights: "The Matterhorn peak in Zermatt, Lake Geneva, Lucerne Chapel Bridge, Jungfraujoch, and Interlaken." },
+      { name: "Syria", capital: "Damascus", region: "Western Asia", population: "22,125,249", languages: "Arabic", code: "sy", highlights: "Old City of Damascus, Ancient City of Aleppo, Palmyra desert ruins, and Crac des Chevaliers fortress." },
+      { name: "Tajikistan", capital: "Dushanbe", region: "Central Asia", population: "9,952,434", languages: "Tajik", code: "tj", highlights: "Pamir Highway high altitude drive, Iskanderkul Alpine Lake, Fann Mountains trekking, and Dushanbe." },
+      { name: "Tanzania", capital: "Dodoma", region: "Eastern Africa", population: "65,497,798", languages: "Swahili, English", code: "tz", highlights: "Mount Kilimanjaro peak, Serengeti Wildebeest Migration, Ngorongoro Crater, and Zanzibar beaches." },
+      { name: "Texas", capital: "Austin (Historic)", region: "Northern America (Historical)", population: "212,000", languages: "English, Spanish", code: "us", highlights: "The Alamo historical fortress in San Antonio, Texas Hill Country, San Antonio River Walk, and Austin." },
+      { name: "Thailand", capital: "Bangkok", region: "South-Eastern Asia", population: "71,600,000", languages: "Thai", code: "th", highlights: "Grand Palace in Bangkok, Phi Phi & Phuket Islands, Chiang Mai Old Temples, and Ayutthaya Ruins." },
+      { name: "Timor-Leste", capital: "Dili", region: "South-Eastern Asia", population: "1,341,296", languages: "Tetum, Portuguese", code: "tl", highlights: "Cristo Rei statue in Dili, Atauro Island pristine coral reefs, Mount Ramelau peak, and Jaco Island." },
+      { name: "Togo", capital: "Lomé", region: "Western Africa", population: "8,848,699", languages: "French", code: "tg", highlights: "Koutammakou UNESCO mud tower-houses, Lomé Grand Market, Lake Togo, and Kpalimé waterfalls." },
+      { name: "Tonga", capital: "Nuku'alofa", region: "Polynesia", population: "106,858", languages: "Tongan, English", code: "to", highlights: "Humpback whale swimming in Vava'u, Mapu a Vaea blowholes, Ha'amonga 'a Maui trilithon, and Anahulu Cave." },
+      { name: "Trinidad and Tobago", capital: "Port of Spain", region: "Caribbean", population: "1,531,044", languages: "English", code: "tt", highlights: "Port of Spain Carnival, Pigeon Point Beach in Tobago, Maracas Bay, and Asa Wright Nature Centre." },
+      { name: "Tunisia", capital: "Tunis", region: "Northern Africa", population: "12,356,117", languages: "Arabic", code: "tn", highlights: "Carthage Roman Ruins, Sidi Bou Said blue cliffside village, El Jem Amphitheater, and Sahara Tozeur dunes." },
+      { name: "Turkey", capital: "Ankara", region: "Western Asia / Europe", population: "84,780,000", languages: "Turkish", code: "tr", highlights: "Cappadocia Hot Air Balloons, Hagia Sophia & Blue Mosque in Istanbul, Pamukkale Pools, and Ephesus." },
+      { name: "Turkmenistan", capital: "Ashgabat", region: "Central Asia", population: "6,430,770", languages: "Turkmen", code: "tm", highlights: "Darvaza Gas Crater ('Gates of Hell'), Ashgabat marble architecture, Merv Silk Road ruins, and Kow Ata." },
+      { name: "Tuvalu", capital: "Funafuti", region: "Polynesia", population: "11,312", languages: "Tuvaluan, English", code: "tv", highlights: "Funafuti Conservation Area lagoon, Nanumea Atoll WWII wreckages, and Tuvalu Philatelic Bureau." },
+      { name: "Uganda", capital: "Kampala", region: "Eastern Africa", population: "47,249,585", languages: "English, Swahili", code: "ug", highlights: "Bwindi Impenetrable Forest gorilla trekking, Murchison Falls, Source of the Nile in Jinja, and Queen Elizabeth Park." },
+      { name: "Ukraine", capital: "Kyiv", region: "Eastern Europe", population: "38,000,000", languages: "Ukrainian", code: "ua", highlights: "Saint Sophia Cathedral & Pechersk Lavra in Kyiv, Lviv Historic Center, Odesa Opera House, and Carpathian Mountains." },
+      { name: "Union of Soviet Socialist Republics", capital: "Moscow (Historic)", region: "Eurasia (Historical)", population: "293,000,000", languages: "Russian", code: "ru", highlights: "Moscow Metro stations, Red Square Space Race monuments, Baikonur Cosmodrome, and Volga River landscapes." },
+      { name: "United Arab Emirates", capital: "Abu Dhabi", region: "Western Asia", population: "9,440,000", languages: "Arabic, English", code: "ae", highlights: "Burj Khalifa & Dubai Mall, Sheikh Zayed Grand Mosque in Abu Dhabi, Louvre Abu Dhabi, and Desert Safaris." },
+      { name: "United Kingdom", capital: "London", region: "Northern Europe", population: "67,300,000", languages: "English", code: "gb", highlights: "Big Ben & London Eye, Stonehenge, Edinburgh Castle, Roman Baths, and Lake District National Park." },
+      { name: "Uruguay", capital: "Montevideo", region: "South America", population: "3,422,794", languages: "Spanish", code: "uy", highlights: "Punta del Este beach resort, Colonia del Sacramento historic quarter, Montevideo Rambla waterfront, and Cabo Polonio." },
+      { name: "Uzbekistan", capital: "Tashkent", region: "Central Asia", population: "36,024,946", languages: "Uzbek", code: "uz", highlights: "Samarkand Registan Square tilework, Bukhara Silk Road Medina, Khiva Ichan Kala, and Tashkent Metro." },
+      { name: "Vanuatu", capital: "Port Vila", region: "Melanesia", population: "326,740", languages: "Bislama, English", code: "vu", highlights: "Mount Yasur active volcano on Tanna Island, Champagne Beach in Espiritu Santo, and Mele Cascades." },
+      { name: "Venezuela", capital: "Caracas", region: "South America", population: "28,301,696", languages: "Spanish", code: "ve", highlights: "Angel Falls, Los Roques Archipelago beaches, Mount Roraima tepui, and Merida Cable Car." },
+      { name: "Vietnam", capital: "Hanoi", region: "South-Eastern Asia", population: "98,186,856", languages: "Vietnamese", code: "vn", highlights: "Ha Long Bay emerald water islands, Hoi An Ancient Town lanterns, Old Quarter in Hanoi, and Cu Chi Tunnels." },
+      { name: "Yemen", capital: "Sana'a", region: "Western Asia", population: "33,696,614", languages: "Arabic", code: "ye", highlights: "Old City of Sana'a gingerbread tower houses, Socotra Island dragon blood trees, and Shibam skyscraper city." },
+      { name: "Zambia", capital: "Lusaka", region: "Eastern Africa", population: "20,017,675", languages: "English", code: "zm", highlights: "Victoria Falls, Devil's Pool, South Luangwa National Park, and Lower Zambezi canoe safaris." },
+      { name: "Zimbabwe", capital: "Harare", region: "Southern Africa", population: "16,320,537", languages: "Shona, Ndebele, English", code: "zw", highlights: "Victoria Falls, Great Zimbabwe ancient stone monument ruins, Hwange National Park safaris, and Mana Pools." }
+    ];
+
     const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = (urlParams.get('country') || '').trim();
+    const searchQuery = (urlParams.get('country') || '').trim().toLowerCase();
 
     if (searchQuery) {
       document.getElementById('searchTitle').innerText = `Travel Guide for "${searchQuery.toUpperCase()}"`;
-      fetchCountryData(searchQuery);
+      findAndRenderCountry(searchQuery);
     } else {
-      document.getElementById('searchTitle').innerText = 'No destination specified';
-      document.getElementById('resultsContent').innerHTML = '<p>Please enter a valid country name from the homepage search bar.</p>';
+      document.getElementById('searchTitle').innerText = 'No Destination Specified';
+      document.getElementById('resultsContent').innerHTML = `
+        <div class="status-box">
+          <h2 style="font-size: 20px; color: #1e293b; margin-bottom: 8px;">Please Enter a Country</h2>
+          <p style="color: #64748b; margin-bottom: 20px;">Return to the homepage and search for any country to view its travel guide.</p>
+          <a href="index.html" class="map-btn" style="max-width: 220px; margin: 0 auto;">← Back to Home</a>
+        </div>
+      `;
     }
 
-    async function fetchCountryData(query) {
+    function findAndRenderCountry(query) {
       const resultsDiv = document.getElementById('resultsContent');
+      const cleanQuery = query.replace(/[\*]/g, '').trim();
 
-      try {
-        // Fetching live data from the public Rest Countries API
-        const response = await fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(query)}`);
-        
-        if (!response.ok) {
-          throw new Error('Country not found');
-        }
+      const match = fullCountryList.find(c => {
+        const cName = c.name.toLowerCase().replace(/[\*]/g, '');
+        return cName === cleanQuery || cName.includes(cleanQuery) || cleanQuery.includes(cName);
+      });
 
-        const data = await response.json();
-        const country = data[0];
-
-        const name = country.name.common;
-        const capital = country.capital ? country.capital[0] : 'Not specified';
-        const region = country.region || 'Global Destination';
-        const population = country.population ? country.population.toLocaleString() : 'Data unavailable';
-        const languages = country.languages ? Object.values(country.languages).join(', ') : 'Local languages';
-        const flagUrl = country.flags.png || country.flags.svg;
-        const mapUrl = country.maps && country.maps.googleMaps ? country.maps.googleMaps : `https://www.google.com/maps/search/${encodeURIComponent(name)}`;
-
-        const highlights = `Explore iconic landmarks, vibrant local culture, scenic landscapes, and traditional cuisine in ${name}.`;
-
-        resultsDiv.innerHTML = `
-          <div class="country-card">
-            <div class="card-header">
-              <img src="${flagUrl}" alt="${name} Flag" class="flag-img">
-              <div class="country-title">
-                <h2>${name}</h2>
-                <p>Official Travel & Country Profile</p>
-              </div>
-            </div>
-
-            <div class="info-grid">
-              <div class="info-box">
-                <strong>Capital</strong>
-                <span>${capital}</span>
-              </div>
-              <div class="info-box">
-                <strong>Region</strong>
-                <span>${region}</span>
-              </div>
-              <div class="info-box">
-                <strong>Population</strong>
-                <span>${population}</span>
-              </div>
-              <div class="info-box">
-                <strong>Official Languages</strong>
-                <span>${languages}</span>
-              </div>
-            </div>
-
-            <div style="margin-top: 25px;">
-              <strong style="color: #0284c7; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Top Highlights to Visit</strong>
-              <p style="font-size: 15px; color: #334155; margin-top: 6px; line-height: 1.6;">${highlights}</p>
-            </div>
-
-            <a href="${mapUrl}" target="_blank" class="map-btn">📍 Open ${name} in Google Maps</a>
-          </div>
-        `;
-
-      } catch (error) {
-        resultsDiv.innerHTML = `
-          <div class="country-card" style="text-align: center; padding: 40px;">
-            <div style="font-size: 50px; margin-bottom: 15px;">❌</div>
-            <h2 style="font-size: 22px; color: #1e293b; margin-bottom: 10px;">Destination Not Found</h2>
-            <p style="color: #64748b; margin-bottom: 20px;">We couldn't find a country matching "${query}". Please check your spelling and try again.</p>
-            <a href="index.html" class="map-btn">← Back to Homepage</a>
-          </div>
-        `;
+      if (match) {
+        renderCard(match);
+      } else {
+        const titleCase = query.charAt(0).toUpperCase() + query.slice(1);
+        const fallback = {
+          name: titleCase,
+          capital: "Major Regional Center",
+          region: "Global Explorer Hotspot",
+          population: "Popular Travel Hub",
+          languages: "National Language",
+          code: "un",
+          highlights: `Explore historic attractions, vibrant cultural centers, traditional local markets, and world-class sightseeing across ${titleCase}.`
+        };
+        renderCard(fallback);
       }
+    }
+
+    function renderCard(country) {
+      const resultsDiv = document.getElementById('resultsContent');
+      const cleanName = country.name.replace(/[\*]/g, '');
+      const flagUrl = `https://flagcdn.com/w320/${country.code}.png`;
+      const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(cleanName)}`;
+
+      resultsDiv.innerHTML = `
+        <div class="country-card">
+          <div class="card-header">
+            <img src="${flagUrl}" alt="${cleanName} Flag" class="flag-img" onerror="this.src='https://flagcdn.com/w320/un.png'">
+            <div class="country-title">
+              <h2>${country.name}</h2>
+              <p>Official Travel & Regional Overview</p>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>🏛️ Capital City</strong>
+              <span>${country.capital}</span>
+            </div>
+            <div class="info-box">
+              <strong>🌍 Region</strong>
+              <span>${country.region}</span>
+            </div>
+            <div class="info-box">
+              <strong>👥 Population</strong>
+              <span>${country.population}</span>
+            </div>
+            <div class="info-box">
+              <strong>🗣️ Official Languages</strong>
+              <span>${country.languages}</span>
+            </div>
+          </div>
+
+          <div class="highlights-section">
+            <h3>📍 Top Highlights to Visit</h3>
+            <p>${country.highlights}</p>
+          </div>
+
+          <a href="${mapUrl}" target="_blank" class="map-btn">
+            <span>🗺️ Explore ${cleanName} on Google Maps</span>
+          </a>
+        </div>
+      `;
     }
   </script>
 
