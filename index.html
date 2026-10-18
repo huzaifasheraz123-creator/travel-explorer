@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Explorer - Plan Your Next Adventure</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0284c7;
+      text-decoration: none;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #64748b;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #0284c7;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .search-box {
+      display: flex;
+      background: white;
+      padding: 6px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 550px;
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      padding: 14px 22px;
+      font-size: 16px;
+      width: 100%;
+      border-radius: 50px 0 0 50px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .search-box button {
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+    .search-box button:hover {
+      background: #0369a1;
+    }
+
+    .featured {
+      padding: 60px 8%;
+      text-align: center;
+    }
+    .featured h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .featured p {
+      color: #64748b;
+      margin-bottom: 40px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      height: 100%;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+      text-align: left;
+    }
+    .card-content h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .card-content p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    /* ==========================================
+       RESPONSIVE MEDIA QUERIES FOR MOBILE & TABLETS
+       ========================================== */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+      .hero {
+        height: 380px;
+        padding: 0 15px;
+      }
+      .hero h1 {
+        font-size: 28px;
+      }
+      .hero p {
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      .search-box {
+        flex-direction: column;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        gap: 12px;
+        max-width: 100%;
+      }
+      .search-box input {
+        border-radius: 12px;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        padding: 14px 18px;
+      }
+      .search-box button {
+        border-radius: 12px;
+        width: 100%;
+        padding: 14px;
+      }
+      .featured {
+        padding: 40px 5%;
+      }
+      .featured h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">✈️ TravelExplorer</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#featured">Destinations</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1>Explore The World</h1>
+    <p>Type any country or city to find the best places to visit!</p>
+    
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Where do you want to go? (e.g. Japan)">
+      <button onclick="performSearch()">Search</button>
+    </div>
+  </div>
+
+  <section class="featured" id="featured">
+    <h2>Popular Destinations</h2>
+    <p>Click on any country to explore top attractions and travel ideas</p>
+
+    <div class="card-grid">
+      
+      <a href="japan.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop" alt="Japan">
+          <div class="card-content">
+            <h3>Japan</h3>
+            <p>Explore historic temples, neon cityscapes, and serene gardens.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="france.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=600&auto=format&fit=crop" alt="France">
+          <div class="card-content">
+            <h3>France</h3>
+            <p>Discover romantic streets, iconic landmarks, and world-class pastries.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="italy.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=600&auto=format&fit=crop" alt="Italy">
+          <div class="card-content">
+            <h3>Italy</h3>
+            <p>Wander through ancient Roman ruins, canals, and savor authentic pasta.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="thailand.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?q=80&w=600&auto=format&fit=crop" alt="Thailand">
+          <div class="card-content">
+            <h3>Thailand</h3>
+            <p>Relax on tropical beaches, visit ornate temples, and try street food.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="uae.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=600&auto=format&fit=crop" alt="UAE">
+          <div class="card-content">
+            <h3>UAE (Dubai)</h3>
+            <p>Experience futuristic skyscrapers, desert safaris, and luxury shopping.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="switzerland.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=600&auto=format&fit=crop" alt="Switzerland">
+          <div class="card-content">
+            <h3>Switzerland</h3>
+            <p>Marvel at breathtaking Alpine mountains, clear lakes, and cozy villages.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="egypt.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=600&auto=format&fit=crop" alt="Egypt">
+          <div class="card-content">
+            <h3>Egypt</h3>
+            <p>Discover ancient Pyramids, historic tombs, and cruises on the Nile River.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="brazil.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=600&auto=format&fit=crop" alt="Brazil">
+          <div class="card-content">
+            <h3>Brazil</h3>
+            <p>Enjoy vibrant culture, lush Amazon rainforests, and famous beaches.</p>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 TravelExplorer. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function performSearch() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+      const customPages = {
+        'japan': 'japan.html',
+        'france': 'france.html',
+        'italy': 'italy.html',
+        'thailand': 'thailand.html',
+        'uae': 'uae.html',
+        'dubai': 'uae.html',
+        'united arab emirates': 'uae.html',
+        'switzerland': 'switzerland.html',
+        'egypt': 'egypt.html',
+        'brazil': 'brazil.html'
+      };
+
+      if (query === '') {
+        alert('Please enter a country name to search!');
+      } else if (customPages[query]) {
+        window.location.href = customPages[query];
+      } else {
+        window.location.href = `search.html?country=${encodeURIComponent(query)}`;
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        performSearch();
+      }
+    });
+  </script>
+
+</body>
+</html>

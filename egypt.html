@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egypt Travel Guide - TravelExplorer</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0284c7;
+      text-decoration: none;
+    }
+    .back-btn {
+      text-decoration: none;
+      background: #e2e8f0;
+      color: #1e293b;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .back-btn:hover {
+      background: #cbd5e1;
+    }
+
+    /* Country Hero */
+    .country-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    .country-hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .country-hero p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 60px 8%;
+    }
+    .content-section h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .attractions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .attraction-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .attraction-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .attraction-info {
+      padding: 20px;
+    }
+    .attraction-info h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .attraction-info p {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo">✈️ TravelExplorer</a>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="country-hero">
+    <h1>Egypt</h1>
+    <p>Discover ancient Pyramids, historic tombs, and cruises on the Nile River</p>
+  </div>
+
+  <!-- Attractions -->
+  <section class="content-section">
+    <h2>Top Places to Visit in Egypt</h2>
+
+    <div class="attractions-grid">
+      
+      <div class="attraction-card">
+        <img src="https://images.unsplash.com/photo-1705628080778-f86b2f90a114?fm=jpg&q=60&w=3000&auto=format&fit=crop" alt="Great Pyramids of Giza">
+        <div class="attraction-info">
+          <h3>Pyramids of Giza & Sphinx</h3>
+          <p>Marvel at the ancient world wonders and the iconic Great Sphinx in Cairo.</p>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <img src="https://plus.unsplash.com/premium_photo-1661906977668-ece2c96385c4?fm=jpg&q=60&w=3000&auto=format&fit=crop" alt="Karnak Temple Luxor">
+        <div class="attraction-info">
+          <h3>Karnak & Luxor Temples</h3>
+          <p>Walk through massive stone columns and monuments of ancient pharaohs.</p>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <img src="https://images.unsplash.com/photo-1575501376367-6711b9b5756b?fm=jpg&q=60&w=3000&auto=format&fit=crop" alt="Nile River Cruise">
+        <div class="attraction-info">
+          <h3>Nile River Cruise</h3>
+          <p>Sail along Egypt's historic river and experience scenic desert landscapes.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 TravelExplorer. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
